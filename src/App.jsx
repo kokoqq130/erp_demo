@@ -1,14 +1,15 @@
 /**
  * Created by wangfajing on 2018/12/24.
  */
-import React, { PureComponent } from 'react';
-class App extends React.Component {
-    render(){
+import React, { Component } from 'react';
+
+class App extends Component {
+    render() {
         return (
             <div>
-                <h2>123123123</h2>
+                <h2>欢迎使用</h2>
             </div>
-        )
+        );
     }
 }
 

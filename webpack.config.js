@@ -50,16 +50,17 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 enforce: 'pre',
-                use: [{
-                    loader: 'babel-loader',
-                },
-                // {
-                //     loader: 'eslint-loader', // 指定启用eslint-loader
-                //     options: {
-                //         formatter: require('eslint-friendly-formatter'),
-                //         emitWarning: false
-                //     }
-                // }
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    },
+                    {
+                        loader: 'eslint-loader', // 指定启用eslint-loader
+                        options: {
+                            formatter: require('eslint-friendly-formatter'),
+                            emitWarning: false
+                        }
+                    }
                 ]
             },
             {
@@ -75,19 +76,19 @@ module.exports = {
                             importLoaders: 2,
                             localIdentName: '[name]-[local]-[hash:base64:5]',
                             modules:true
-                        }
+                        },
                     }, {
                         loader: 'postcss-loader',
                         options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
                             plugins: (loader) => [
-                                require('autoprefixer')(), //CSS浏览器兼容
-                            ]
-                        }
-                    },{
+                                require('autoprefixer')(), // CSS浏览器兼容
+                            ],
+                        },
+                    }, {
                         loader: 'less-loader',
                         options: {
                             javascriptEnabled: true,
-                        }
+                        },
                     }],
             },
             {
@@ -96,7 +97,7 @@ module.exports = {
                 options: {
                     limit: 10000,
                     name: 'static/img/[name].[hash:7].[ext]'
-                }
+                },
             },
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -104,7 +105,7 @@ module.exports = {
                 options: {
                     limit: 10000,
                     name: 'static/media/[name].[hash:7].[ext]'
-                }
+                },
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -112,16 +113,17 @@ module.exports = {
                 options: {
                     limit: 10000,
                     name: 'static/fonts/[name].[hash:7].[ext]'
-                }
+                },
             },
-        ]
-    },// 重命名
+        ],
+    },
+    // 重命名
     resolve: {
         // require时省略的扩展名，如：require('module') 不需要module.js
         extensions: ['.js', '.jsx'],
         // 别名，可以直接使用别名来代表设定的路径以及其他
         alias: {
-        }
+        },
     },
     plugins: [
         new HtmlWebPackPlugin({
@@ -129,19 +131,19 @@ module.exports = {
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
-                removeAttributeQuotes: true
+                removeAttributeQuotes: true,
                 // more options:
                 // https://github.com/kangax/html-minifier#options-quick-reference
             },
-            filename: 'index.html'
+            filename: 'index.html',
         }),
         new CopyWebpackPlugin([
             {
                 from: path.resolve(__dirname, './src/static'),
                 to: 'static',
-                ignore: ['.*']
-            }
+                ignore: ['.*'],
+            },
         ]),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
     ],
-};
+}

@@ -1,0 +1,16 @@
+*.*
+
+!*/
+
+!.gitignore
+!*.js
+!*.jsx
+!*.css
+!*.eot
+!*.html
+!*.svg
+!*.ttf
+!*.woff
+!*.json
+!*.scss
+!*.ejs

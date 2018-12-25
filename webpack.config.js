@@ -26,7 +26,7 @@ module.exports = {
         publicPath: '/',
         hot: true,
         progress: true,
-        overlay: { warnings: false, errors: true },
+        overlay: { warnings: false, errors: false },
         historyApiFallback: {
             rewrites: [
                 { from: /.*/, to: path.posix.join('/', 'index.html') },

@@ -5,17 +5,15 @@ class View extends React.Component {
         super();
         Object.defineProperty(this, 'render', {
             get: function() {
-                return this.render
+                return this.render || (() => {
+                    return null;
+                })
             },
             set: function(newrender){
                 console.info(newrender);
                 this.render = newrender;
-                return newrender;
             }
         })
-    }
-    render() {
-        return null;
     }
 }
 

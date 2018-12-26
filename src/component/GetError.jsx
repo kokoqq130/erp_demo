@@ -32,7 +32,7 @@ class GetError extends React.Component {
         if (error) {
             return (<div>
                 Error:
-                {error}
+                {error.toString()}
             </div>);
         }
         return children;

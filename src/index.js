@@ -8,5 +8,5 @@ import GetError from './component/GetError';
 
 console.info(document.getElementById('app'));
 /* eslint-disable react/jsx-filename-extension */
-ReactDom.render(<GetError><App /></GetError>, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('app'));
 /* eslint-enable react/jsx-filename-extension */

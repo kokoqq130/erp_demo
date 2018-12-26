@@ -2,9 +2,10 @@
  * Created by wangfajing on 2018/12/26.
  */
 import React from 'react';
+import View from '@View';
 import { Transfer, Button } from 'antd';
 
-class TransferTest extends React.Component {
+class TransferTest extends View {
     state = {
         mockData: [],
         targetKeys: [],

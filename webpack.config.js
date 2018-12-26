@@ -55,13 +55,13 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                     },
-                    {
-                        loader: 'eslint-loader', // 指定启用eslint-loader
-                        options: {
-                            formatter: require('eslint-friendly-formatter'),
-                            emitWarning: false,
-                        },
-                    },
+                    //{
+                    //    loader: 'eslint-loader', // 指定启用eslint-loader
+                    //    options: {
+                    //        formatter: require('eslint-friendly-formatter'),
+                    //        emitWarning: false,
+                    //    },
+                    //},
                 ],
             },
             {
@@ -106,7 +106,9 @@ module.exports = {
         extensions: ['.js', '.jsx'],
         // 别名，可以直接使用别名来代表设定的路径以及其他
         alias: {
-        },
+            '@View': path.resolve('./src/core/View.jsx'),
+            '@page': path.resolve('./src/page')
+        }
     },
     plugins: [
         new HtmlWebPackPlugin({

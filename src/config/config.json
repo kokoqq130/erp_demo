@@ -1,0 +1,16 @@
+{
+  "menus": [
+    {
+      "name": "基本信息",
+      "key": "basicInfo",
+      "url": "basicInfo",
+      "icon": "solution"
+    },
+    {
+      "name": "测试",
+      "key": "about",
+      "url": "about",
+      "icon": "solution"
+    }
+  ]
+}

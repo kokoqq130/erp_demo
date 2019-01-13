@@ -4,12 +4,13 @@
 import React from 'react';
 import View from '@View';
 
-class Header extends View {
+class BasicInfo extends View {
     render() {
+        console.info(123);
         return <h1>
-            柯灵宝宝的小记录
+            柯灵宝宝的小记录1212123123123
         </h1>
     }
 }
 
-export default Header;
+export default BasicInfo;

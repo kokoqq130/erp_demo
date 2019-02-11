@@ -2,7 +2,7 @@
  * Created by wangfajing on 2018/12/24.
  */
 import React, { Component } from 'react';
-import {Switch,Link,Route,BrowserRouter} from 'react-router-dom';
+import {Switch, Link, Route, BrowserRouter} from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import View from '@View';
 import './style/common.css';
@@ -10,6 +10,7 @@ import Config from './config/config.json';
 import Router from './router/Router';
 
 const { Header, Sider, Content } = Layout;
+const { SubMenu, Item } = Menu;
 
 class App extends View {
     constructor(props) {
@@ -29,21 +30,28 @@ class App extends View {
 
     genMenu = (menus) => {
         const { collapsed } = this.state;
-        console.info(menus);
         return menus.map((item) => {
+            if (item.child) {
+                return (
+                    <SubMenu key={item.key} title={item.name}>
+                        {this.genMenu(item.child)}
+                    </SubMenu>
+                );
+            }
             return (
-                <Menu.Item key={item.key}>
+                <Item key={item.key}>
                     <Link className="menu-link" to={item.url}>
                         <Icon type={item.icon} />
                         {!collapsed ? item.name : null}
                     </Link>
-                </Menu.Item>
+                </Item>
             );
         });
     };
 
     render() {
         const menus = Config.menus;
+        console.info(this.genMenu(menus));
         const { collapsed } = this.state;
         return (
             <div>
@@ -56,7 +64,7 @@ class App extends View {
                         <div className="logo clearfix">
                             <img src="./static/img/logo.png" alt="logo" title="宝宝记录" />
                         </div>
-                        <Menu theme="dark" mode="inline" defaultSelectedKeys={['basicInfo']}>
+                        <Menu theme="dark" mode="inline">
                             {this.genMenu(menus)}
                         </Menu>
                     </Sider>

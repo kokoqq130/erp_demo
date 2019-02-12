@@ -1,16 +1,17 @@
 {
   "menus": [
     {
-      "name": "基本信息",
-      "key": "basicInfo",
-      "url": "basicInfo",
-      "icon": "solution"
-    },
-    {
-      "name": "测试",
-      "key": "about",
-      "url": "about",
-      "icon": "solution"
+      "name": "系统设置",
+      "key": "systemConfig",
+      "url": "",
+      "icon": "solution",
+      "child": [{
+        "name": "基本信息设置",
+        "key": "basicInfo",
+        "url": "basicInfo",
+        "icon": "solution",
+        "child": null
+      }]
     }
   ]
 }

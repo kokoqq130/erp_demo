@@ -7,6 +7,7 @@
 !.eslintrc
 !yarn.lock
 !package.json
+!package-lock.json
 !webpack.*.js
 !README.md
 
